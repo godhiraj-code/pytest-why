@@ -28,7 +28,7 @@ python -m pytest --why
 
 Without `--why`, the plugin does nothing and creates no report files.
 
-## Viral demo
+## Example
 
 Given:
 
@@ -74,7 +74,5 @@ explanation, hint, and the complete raw traceback.
 
 Selenium and Playwright tracebacks also receive a focused browser automation
 hint covering selectors, waits, page timing, and element visibility.
-
-The MVP is deterministic and local. No LLM or network connection is required.
 
 **Stop doomscrolling tracebacks. Run pytest --why.**
