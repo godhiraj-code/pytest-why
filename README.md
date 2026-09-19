@@ -70,6 +70,9 @@ explanation, hint, and the complete raw traceback.
 - **Import error**: a module or symbol could not be imported
 - **Fixture error**: missing fixtures, scope mismatches, or recursive dependencies
 - **Timeout**: a test or operation exceeded its time limit
+- **Syntax/collection error**: parsing or collection failed before a test could run
+- **Type error**: an operation received an incompatible object or argument type
+- **Connection error**: a dependency connection was refused, reset, or otherwise failed
 - **Unknown failure**: deterministic fallback with traceback-first guidance
 
 Selenium and Playwright tracebacks also receive a focused browser automation
