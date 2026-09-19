@@ -112,6 +112,49 @@ def classify_failure(
                 "trace where they first diverge."
             ),
         }
+    elif phase == "collect" or _contains_any(
+        text,
+        ("SyntaxError", "IndentationError", "TabError", "error collecting"),
+    ):
+        result = {
+            "type": "collection_error",
+            "title": "Syntax/collection error",
+            "explanation": (
+                "Pytest could not collect this test, usually because Python could "
+                "not parse the file or collection failed before the test could run."
+            ),
+            "hint": (
+                "Start at the first syntax or collection error, fix that file and "
+                "line, then rerun collection before debugging test behavior."
+            ),
+        }
+    elif "TypeError" in text:
+        result = {
+            "type": "type_error",
+            "title": "Type error",
+            "explanation": (
+                "An operation received an object or argument of an incompatible type."
+            ),
+            "hint": (
+                "Inspect the values and call signature at the last application frame, "
+                "including argument names, return values, and supported operand types."
+            ),
+        }
+    elif _contains_any(
+        text,
+        ("ConnectionError", "ConnectionRefusedError", "ConnectionResetError"),
+    ):
+        result = {
+            "type": "connection_error",
+            "title": "Connection error",
+            "explanation": (
+                "The test could not establish or keep a connection to a dependency."
+            ),
+            "hint": (
+                "Confirm the target address, service availability, test isolation, and "
+                "whether the dependency should be replaced with a local test double."
+            ),
+        }
     else:
         result = {
             "type": "unknown_failure",

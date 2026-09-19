@@ -82,3 +82,16 @@ def test_collection_import_error_is_explained_and_writes_reports(pytester):
     assert "**Phase:** `collect`" in markdown
     assert "Import error" in html
     assert "Phase: <code>collect</code>" in html
+
+
+def test_collection_syntax_error_is_explained(pytester):
+    pytester.makepyfile(test_broken="def test_broken(\n")
+
+    result = pytester.runpytest("--why")
+
+    result.assert_outcomes(errors=1)
+    result.stdout.fnmatch_lines(
+        ["Syntax/collection error: test_broken.py (collect)"]
+    )
+    markdown = (pytester.path / "pytest-why-report.md").read_text(encoding="utf-8")
+    assert "`collection_error` - Syntax/collection error" in markdown
