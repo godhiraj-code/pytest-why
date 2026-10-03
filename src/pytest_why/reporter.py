@@ -28,6 +28,14 @@ def _backtick_fence(content: str) -> str:
     return "`" * max(3, longest_run + 1)
 
 
+def _inline_code(value: Any) -> str:
+    """Keep parameterized node IDs inside a single Markdown code span."""
+    content = str(value).replace("\r", " ").replace("\n", " ")
+    fence = _backtick_fence(content) if "`" in content else "`"
+    padding = " " if content.startswith("`") or content.endswith("`") else ""
+    return f"{fence}{padding}{content}{padding}{fence}"
+
+
 def write_markdown_report(
     failures: Iterable[Failure],
     path: PathLike = "pytest-why-report.md",
@@ -46,7 +54,7 @@ def write_markdown_report(
         fence = _backtick_fence(traceback)
         lines.extend(
             [
-                f"## {index}. `{failure['nodeid']}`",
+                f"## {index}. {_inline_code(failure['nodeid'])}",
                 "",
                 f"- **Phase:** `{failure['phase']}`",
                 f"- **Type:** `{failure['type']}` - {failure['title']}",
