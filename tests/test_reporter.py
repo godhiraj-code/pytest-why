@@ -1,4 +1,16 @@
 from pytest_why.reporter import write_html_report, write_markdown_report
+from pytest_why.reporter import _inline_code
+
+
+def test_nodeid_cannot_break_markdown_code_span(tmp_path):
+    failure = sample_failure()
+    failure["nodeid"] = 'test_demo[`\n<img src=x onerror=alert(1)>]'
+    path = tmp_path / "report.md"
+    write_markdown_report([failure], path)
+    content = path.read_text(encoding="utf-8")
+    assert '## 1. ```test_demo[` <img src=x onerror=alert(1)>]```' in content
+    assert "\n<img" not in content
+    assert _inline_code("`value`") == "``` `value` ```"
 
 
 def sample_failure():
