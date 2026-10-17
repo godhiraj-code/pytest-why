@@ -4,13 +4,23 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pytest-why"
-version = "0.1.1"
-description = "A pytest plugin that explains failing tests like a senior engineer."
+version = "0.1.2"
+description = "Pytest plugin that explains why tests failed, in plain English, with next steps and a shareable report."
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
 authors = [
-  { name = "pytest-why contributors" }
+  { name = "Dhiraj Das" }
+]
+keywords = [
+  "pytest",
+  "pytest-plugin",
+  "test-failures",
+  "debugging",
+  "assertion",
+  "traceback",
+  "flaky-tests",
+  "developer-tools",
 ]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -24,14 +34,20 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
   "Topic :: Software Development :: Testing",
+  "Topic :: Software Development :: Debuggers",
+  "Topic :: Software Development :: Quality Assurance",
+  "Operating System :: OS Independent",
 ]
 dependencies = [
   "pytest>=7",
 ]
 
 [project.urls]
-Homepage = "https://www.dhirajdas.dev"
+Homepage = "https://www.dhirajdas.dev/project/pytest-why"
+Documentation = "https://github.com/godhiraj-code/pytest-why#readme"
 Repository = "https://github.com/godhiraj-code/pytest-why"
+Issues = "https://github.com/godhiraj-code/pytest-why/issues"
+Blog = "https://www.dhirajdas.dev/blog/pytest-why-actionable-failure-guidance"
 
 [project.optional-dependencies]
 dev = [
