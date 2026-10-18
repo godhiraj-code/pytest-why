@@ -48,6 +48,7 @@ Documentation = "https://github.com/godhiraj-code/pytest-why#readme"
 Repository = "https://github.com/godhiraj-code/pytest-why"
 Issues = "https://github.com/godhiraj-code/pytest-why/issues"
 Blog = "https://www.dhirajdas.dev/blog/pytest-why-actionable-failure-guidance"
+X = "https://x.com/dkkkkd"
 
 [project.optional-dependencies]
 dev = [
