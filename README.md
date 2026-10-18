@@ -36,7 +36,7 @@ Fixture error: test_checkout.py::test_checkout (setup)
 Reports: pytest-why-report.md, pytest-why-report.html
 ```
 
-**Learn more:** [pytest-why: actionable failure guidance](https://www.dhirajdas.dev/blog/pytest-why-actionable-failure-guidance) · [Project page](https://www.dhirajdas.dev/project/pytest-why)
+**Learn more:** [pytest-why: actionable failure guidance](https://www.dhirajdas.dev/blog/pytest-why-actionable-failure-guidance) · [Project page](https://www.dhirajdas.dev/project/pytest-why) · [Follow @dkkkkd on X](https://x.com/dkkkkd)
 
 `pytest-why` turns common pytest failures into concise explanations and practical
 next steps. It runs locally, adds no noise to normal test runs, and creates
